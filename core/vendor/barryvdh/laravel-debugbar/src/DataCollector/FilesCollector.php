@@ -50,7 +50,7 @@ class FilesCollector extends DataCollector implements Renderable
             } else {
                 $alreadyCompiled[] = [
                     'message' => "* '" . $this->stripBasePath($file) . "',",
-                    // Mark with *, so know they are compiled anyway.
+                    // Mark with *, so know they are compiled anyways.
                     'is_string' => true,
                 ];
             }

@@ -4,7 +4,6 @@ namespace Barryvdh\Debugbar\DataFormatter;
 
 use DebugBar\DataFormatter\DataFormatter;
 
-#[\AllowDynamicProperties]
 class QueryFormatter extends DataFormatter
 {
     /**
@@ -56,7 +55,7 @@ class QueryFormatter extends DataFormatter
     public function escapeBindings($bindings)
     {
         foreach ($bindings as &$binding) {
-            $binding = htmlentities((string) $binding, ENT_QUOTES, 'UTF-8', false);
+            $binding = htmlentities($binding, ENT_QUOTES, 'UTF-8', false);
         }
 
         return $bindings;
@@ -68,7 +67,7 @@ class QueryFormatter extends DataFormatter
      * @param  object|null  $source  If the backtrace is disabled, the $source will be null.
      * @return string
      */
-    public function formatSource($source, $short = false)
+    public function formatSource($source)
     {
         if (! is_object($source)) {
             return '';
@@ -76,11 +75,11 @@ class QueryFormatter extends DataFormatter
 
         $parts = [];
 
-        if (!$short && $source->namespace) {
+        if ($source->namespace) {
             $parts['namespace'] = $source->namespace . '::';
         }
 
-        $parts['name'] = $short ? basename($source->name) : $source->name;
+        $parts['name'] = $source->name;
         $parts['line'] = ':' . $source->line;
 
         return implode($parts);

@@ -1,3 +1,21 @@
+# 3.0.1
+
+### Changed
+
+* Allow composer to choose psr/container 1 or 2 for downstream dependencies
+* Update changelog
+* Update contributors list
+
+# 3.0.0
+
+### Fixed
+* `getCountryPrefix()` string return type
+
+### Changed
+
+* Major removals of deprecations, most notable `ArrayAccess`
+* PSR Logger support for 2.0
+
 # 2.10.0
 
 ### Fixed
@@ -7,7 +25,7 @@
 ### Changed
 
 * Maintainer and Contribution documents changed to reflect current ownership
-* All test cases now extend off a the new `VonageTestCase` class that implements the `ProphesizeTrait`
+* All test cases now extend off the new `VonageTestCase` class that implements the `ProphesizeTrait`
 
 # 2.9.3
 
